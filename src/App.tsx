@@ -6,9 +6,11 @@ import { createGlobalStyle } from "styled-components"
 
 import store from "./store/index"
 
-// import Layout from "./containers/Layout"
-// import Login from "./containers/Login"
-// import Main from "./containers/Main"
+import Layout from "./containers/Layout"
+import Control from "./containers/Control"
+
+import 'antd/dist/antd.css';
+
 
 const GlobalStyle = createGlobalStyle`
     html,
@@ -38,20 +40,14 @@ const App = () => (
 	<Provider store={store}>
 		<GlobalStyle />
 		<HashRouter>
-			{/* <Layout>
+			<Layout>
 				<Switch>
-					<Route exact path="/" render={() => <Redirect to="/login" />} />
-					<Route
-						exact
-						path="/main"
-						render={() => <Redirect to="/main/course" />}
-					/>
+					<Route exact path="/" render={() => <Redirect to="/control" />} />
 					<Switch>
-						<Route path="/main" component={Main} />
-						<Route path="/login" component={Login} />
+						<Route path="/control" component={Control} />
 					</Switch>
 				</Switch>
-			</Layout> */}
+			</Layout>
 		</HashRouter>
 	</Provider>
 )
