@@ -1,16 +1,13 @@
-import React from "react"
-import { Provider } from "react-redux"
-import { HashRouter, Route, Redirect } from "react-router-dom"
-import { Switch } from "react-router"
-import { createGlobalStyle } from "styled-components"
+import React from 'react'
+import { Provider } from 'react-redux'
+import { HashRouter } from 'react-router-dom'
+import { createGlobalStyle } from 'styled-components'
 
-import store from "./store/index"
+import store from './store/index'
 
-import Layout from "./containers/Layout"
-import Control from "./containers/Control"
+import Layout from './containers/Layout'
 
-import 'antd/dist/antd.css';
-
+import 'antd/dist/antd.css'
 
 const GlobalStyle = createGlobalStyle`
     html,
@@ -37,19 +34,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => (
-	<Provider store={store}>
-		<GlobalStyle />
-		<HashRouter>
-			<Layout>
-				<Switch>
-					<Route exact path="/" render={() => <Redirect to="/control" />} />
-					<Switch>
-						<Route path="/control" component={Control} />
-					</Switch>
-				</Switch>
-			</Layout>
-		</HashRouter>
-	</Provider>
+  <Provider store={store}>
+    <GlobalStyle />
+    <HashRouter>
+      <Layout />
+    </HashRouter>
+  </Provider>
 )
 
 export default App
