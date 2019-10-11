@@ -2,30 +2,18 @@
 import * as actions from "../actionTypes/index"
 export default (
 	state = {
-		toast: {
+		loading: {
 			visible: false,
-			content: ""
-		},
-		pwdModal: {
-			visible: false
-		},
-		update: {
-			showUpdateModal: false,
-			info: {}
-		},
-		downloadProgress: 0,
-		device: {
-			visible: false
-		},
-		showRedDot: false
+			tip: ""
+		}
 	},
 	{ type, payload }: Store.IAction
 ) => {
 	switch (type) {
-		case actions.SET_TOAST:
+		case actions.SET_LOADING:
 			return {
 				...state,
-				toast: payload
+				loading: payload
 			}
 		default:
 			return state

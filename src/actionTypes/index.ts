@@ -1,4 +1,2 @@
 // common
-export const SET_TOAST = "SET_TOAST"
-
-export const TOGGLE_TOAST = "TOGGLE_TOAST"
+export const SET_LOADING = "SET_LOADING"

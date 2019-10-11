@@ -34,7 +34,7 @@ class Book extends React.Component<any, any> {
     {
       title: '书名',
       dataIndex: 'bookname',
-      key: 'bookname',
+      key: 'bookname'
     },
     {
       title: '分类',
@@ -50,9 +50,7 @@ class Book extends React.Component<any, any> {
       title: '最新章节',
       dataIndex: 'latest_chapter',
       key: 'latest_chapter',
-      render: (text: string) => (
-          <a>{text}</a>
-      )
+      render: (text: string) => <a>{text}</a>
     },
     {
       title: 'Action',
@@ -95,9 +93,6 @@ class Book extends React.Component<any, any> {
       <Root>
         <Header>
           <Form layout='inline' onSubmit={this.handleSubmit}>
-            <Form.Item label='书名'>
-              <Input placeholder='请输入书名' />
-            </Form.Item>
             <Form.Item label='分类'>
               <Select
                 defaultValue='0'
@@ -113,6 +108,9 @@ class Book extends React.Component<any, any> {
                 <Option value='6'>网游</Option>
                 <Option value='7'>科幻</Option>
               </Select>
+            </Form.Item>
+            <Form.Item label='书名'>
+              <Input placeholder='请输入书名' />
             </Form.Item>
             <Form.Item>
               <Button type='primary' htmlType='submit'>
