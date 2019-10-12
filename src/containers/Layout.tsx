@@ -11,6 +11,8 @@ import Update from './Update'
 
 import styles from '../style/layout.module.scss'
 
+import * as actions from '../actionTypes/index'
+
 const { Header, Sider, Content } = Layout
 const { SubMenu } = Menu
 
@@ -19,11 +21,21 @@ class LayoutPage extends React.Component<any, any> {
     var pathname = this.props.location.pathname
     return pathname === '/add' ? ['2'] : pathname === '/update' ? ['3'] : ['1']
   }
+  handleClose = () => {
+    const { dispatch } = this.props
+    dispatch({
+      type: actions.SET_LOADING,
+      payload: {
+        visible: false,
+        tip: ''
+      }
+    })
+  }
   render() {
     const { loading } = this.props
     return (
       <>
-        {loading.visible && <Loading tip={loading.tip} />}
+        {loading.visible && <Loading tip={loading.tip} closed={this.handleClose}/>}
         <Layout className={styles.layout}>
           <Header style={{ backgroundColor: '#fff' }}>
             <Row type='flex' justify='space-between' align='middle'>

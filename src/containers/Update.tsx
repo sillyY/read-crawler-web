@@ -28,9 +28,14 @@ const Content = styled(Flex)`
   background-color: #fff;
 `
 
+const List = styled.ul`
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+`
+
 class Update extends React.Component<any, any> {
   state = {
-    visible: false,
+    visible: true,
     data: {
       title: '帝霸',
       author: '厌笔萧生',
@@ -48,10 +53,10 @@ class Update extends React.Component<any, any> {
     })
   }
   handleCancel = (e: any) => {
-    console.log(e);
+    console.log(e)
     this.setState({
-      visible: false,
-    });
+      visible: false
+    })
   }
 
   handleSubmit() {}
@@ -75,13 +80,22 @@ class Update extends React.Component<any, any> {
           title='书籍'
           visible={this.state.visible}
           footer={null}
-          width="60%"
+          width='60%'
         >
-          <ul>
+          <List>
             <li>
               <Card data={this.state.data} />
             </li>
-          </ul>
+            <li>
+              <Card data={this.state.data} />
+            </li>
+            <li>
+              <Card data={this.state.data} />
+            </li>
+            <li>
+              <Card data={this.state.data} />
+            </li>
+          </List>
         </Modal>
       </Root>
     )
